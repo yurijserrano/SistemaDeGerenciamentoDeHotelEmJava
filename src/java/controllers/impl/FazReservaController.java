@@ -1,0 +1,44 @@
+package controllers.impl;
+
+import controllers.AbstractController;
+import dao.DAOException;
+import dao.QuartoDAO;
+import hotel.Data;
+import hotel.Quarto;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.http.HttpServletRequest;
+
+/**
+ *
+ * @author Yuri Serrano
+ */
+public class FazReservaController
+        extends AbstractController {
+
+    @Override
+    public void execute() {
+        HttpServletRequest request = getRequest();
+        Data pedido = new Data();
+        pedido.setHotelId(Long.parseLong(request.getParameter("hotel")));
+        pedido.setTipo(request.getParameter("tipo"));
+        pedido.setInicio(LocalDate.parse(request.getParameter("inicio")));
+        pedido.setFim(LocalDate.parse(request.getParameter("fim")));
+
+        QuartoDAO dao = new QuartoDAO();
+        List<Quarto> quartos = null ;
+
+        try {
+            quartos = dao.getQuartosDisponiveis(pedido);
+        } catch (DAOException ex) {
+            Logger.getLogger(FazReservaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        this.getRequest().setAttribute("pedido", pedido);
+        this.getRequest().setAttribute("quartos", quartos);
+        this.setReturnPage("/quartosDisponiveis.jsp");
+    }
+
+}

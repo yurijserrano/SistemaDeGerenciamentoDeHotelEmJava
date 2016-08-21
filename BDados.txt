@@ -1,0 +1,188 @@
+DROP TABLE REDE.RESERVAS;
+DROP TABLE REDE.ESTADIAS;
+DROP TABLE REDE.QUARTOS;
+DROP TABLE REDE.HOSPEDES;
+DROP TABLE REDE.HOTEIS;
+DROP TABLE REDE.CLIENTES;
+
+
+
+
+
+CREATE SCHEMA REDE;
+
+
+CREATE TABLE rede.clientes (
+cliente_id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+nome VARCHAR(100) NOT NULL,
+endereco VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+senha VARCHAR(100) NOT NULL
+);
+
+INSERT INTO rede.clientes (nome,endereco,email,senha) VALUES ('Rubens dos Santos','Rua Guatatuba, 208,Sao Paulo','rubensdobar@gmail.com','rubens157');
+INSERT INTO rede.clientes (nome,endereco,email,senha) VALUES ('Rafael de Almeida','Rua Condado,509,Sao Paulo','ralmeidinha@yahoo.com','rafaelcorinthians');
+INSERT INTO rede.clientes (nome,endereco,email,senha) VALUES ('Beatriz Domingos','Rua Celia Sobral, 28,Sao Paulo','beatrizdomingos@outlook.com.br','bdomingos');
+INSERT INTO rede.clientes (nome,endereco,email,senha) VALUES ('Ruth de Fatima','Rua Lucila De Faria, 190,Sao Paulo','ruthgatinha@terra.com.br','rfatima');
+INSERT INTO rede.clientes (nome,endereco,email,senha) VALUES ('Vitoria Nunes','Rua Alameda Jau, 2007,Sao Paulo','vnunes@uol.com.br','vnunes5');
+
+
+
+CREATE TABLE rede.hoteis (
+hotel_id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+nome VARCHAR(100) NOT NULL,
+endereco VARCHAR(100) NOT NULL
+);
+
+
+INSERT INTO rede.hoteis (nome,endereco) VALUES ('Max Hotel','Rua dos Guararapes, 3098,Sao Paulo');
+INSERT INTO rede.hoteis (nome,endereco) VALUES ('Novo Hotel','Rua Iguatemi,5009,Sao Paulo');
+INSERT INTO rede.hoteis (nome,endereco) VALUES ('Formule Two','Rua Ademar Bassi,606,Sao Paulo');
+INSERT INTO rede.hoteis (nome,endereco) VALUES ('Serrano Hotel','Rua Tuiuti , 1900,Sao Paulo');
+INSERT INTO rede.hoteis (nome,endereco) VALUES ('Serrano II Hotel','Rua Saboreana, 1007,Sao Paulo');
+
+
+CREATE TABLE rede.quartos (
+quarto_id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+hotel_id INTEGER NOT NULL,
+tipo VARCHAR(100) NOT NULL,
+FOREIGN KEY (hotel_id) REFERENCES rede.hoteis (hotel_id) ON DELETE CASCADE
+);
+
+
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'padrao');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'executivo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (1,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (2,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (3,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (4,'luxo');
+INSERT INTO rede.quartos (hotel_id,tipo) VALUES (5,'luxo');
+
+
+CREATE TABLE rede.hospedes (
+hospede_id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+cliente_id INTEGER NOT NULL,
+quarto_id INTEGER NOT NULL,
+nome VARCHAR(100) NOT NULL,
+endereco VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+FOREIGN KEY (cliente_id) REFERENCES rede.clientes (cliente_id) ON DELETE CASCADE,
+FOREIGN KEY (quarto_id) REFERENCES rede.quartos (quarto_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE rede.estadias (
+estadia_id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+hospede_id INTEGER NOT NULL,
+quarto_id INTEGER NOT NULL,
+inicio DATE NOT NULL,
+fim DATE NOT NULL,
+FOREIGN KEY (hospede_id) REFERENCES rede.hospedes (hospede_id) ON DELETE CASCADE,
+FOREIGN KEY (quarto_id) REFERENCES rede.quartos (quarto_id) ON DELETE CASCADE
+);
+
+
+
+
+CREATE TABLE rede.reservas (
+reserva_id INTEGER NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+cliente_id INTEGER NOT NULL,
+quarto_id  INTEGER NOT NULL,
+inicio DATE NOT NULL,
+fim DATE NOT NULL,
+FOREIGN KEY (cliente_id) REFERENCES rede.clientes (cliente_id) ON DELETE CASCADE,
+FOREIGN KEY (quarto_id) REFERENCES rede.quartos (quarto_id) ON DELETE CASCADE
+);
+
+INSERT INTO rede.reservas (cliente_id,quarto_id,inicio,fim) VALUES (3,9,'11/07/2014','11/15/2014');
+INSERT INTO rede.reservas (cliente_id,quarto_id,inicio,fim) VALUES (2,16,'12/15/2014','12/25/2014');

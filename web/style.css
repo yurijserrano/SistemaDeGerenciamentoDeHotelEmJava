@@ -1,0 +1,87 @@
+#container {
+    border:1px;
+    border-style:dotted;
+    padding:10px;
+    position:absolute;
+    margin: auto;
+}
+
+#formulario {
+    float:right;
+    width:28%;
+    border:1px;
+    border-style:dotted;
+    padding:5px;
+    margin-top:1%;
+    margin-right:5%
+}
+
+#texto {
+    float:right;
+    width:45%;
+    height: 23%;
+    border:1px;
+    border-style:dotted;
+    padding:5px;
+    margin-top:1%;
+    margin-left:2%;
+    margin-right: 2%;
+
+}
+
+#botoes {
+    float:right;
+    margin-top:1%;
+}
+
+#voltar {
+    float:left;
+    margin-top: 0px;
+    margin-right: 2%;
+}
+
+.botao {
+    font:bold 18px Tahoma, Geneva, sans-serif;
+    font-style:normal;
+    color:#ffffff;
+    background:#d96a15;
+    border:0px solid #ffffff;
+    text-shadow:0px -1px 1px #222222;
+    box-shadow:2px 2px 5px #000000;
+    -moz-box-shadow:2px 2px 5px #000000;
+    -webkit-box-shadow:2px 2px 5px #000000;
+    border-radius:10px 10px 10px 10px;
+    -moz-border-radius:10px 10px 10px 10px;
+    -webkit-border-radius:10px 10px 10px 10px;
+    width:190px;
+    padding:1px 5px;
+    cursor:pointer;
+    margin:1% auto;
+}
+
+.right {
+    float:right;
+}
+
+.left {
+    float:left;
+    clear: both;
+    margin-left:5%;
+}
+
+.none {
+    float:none;
+    clear:both;
+    margin: 0 1em 1em 0;
+    padding: 0 4em;
+    height: 3.5em;
+    position:initial;
+    
+}
+
+a:link 
+{ 
+ text-decoration:none; 
+} 
+
+
